@@ -21,7 +21,7 @@ public class Disparador : MonoBehaviour
         if(ball != null){                           // If the ball triggered the Disparador
             if (Input.GetKey(KeyCode.Space)){       // If the user is pressing the space key
                 if (power <= maxPower){             // Ensure the max power
-                    power += 20*Time.deltaTime;
+                    power += 60*Time.deltaTime;
                 }
                 //Debug.Log("power: " + power);
             }

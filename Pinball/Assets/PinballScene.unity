@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d62f6a5782e1e5e96662441a37afbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
 --- !u!65 &152856252
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1344,7 +1345,7 @@ Transform:
   m_GameObject: {fileID: 927435035}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4, y: 0.5, z: -1.06}
-  m_LocalScale: {x: 0.2, y: 0.5, z: 8}
+  m_LocalScale: {x: 0.2, y: 1, z: 8}
   m_Children: []
   m_Father: {fileID: 219989467}
   m_RootOrder: 5
@@ -2515,7 +2516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851883415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.34, y: 0.5, z: 1.79}
+  m_LocalPosition: {x: 7.02, y: -0.11, z: -5.39}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2529,9 +2530,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851883415}
   serializedVersion: 2
-  m_Mass: 0.01
+  m_Mass: 0.08
   m_Drag: 0.1
-  m_AngularDrag: 0.1
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

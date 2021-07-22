@@ -6,13 +6,15 @@ public class Ball : MonoBehaviour
 {
 
     public int lives = 3;
+    int score = 0;
     bool gameOver = false;
     float height;
+    Rigidbody ball;
 
     // Start is called before the first frame update
     void Start()
     {
-        //transform.position = new Vector3(6.74f,0.5f,-5.68f);
+        ball = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -32,23 +34,31 @@ public class Ball : MonoBehaviour
             Debug.Log("Your score was " + score + " points.");
             Debug.Log("Game Over");
             gameOver = true;
-            transform.position = new Vector3(5.39f,0.5f,-6.63f);
+            transform.position = new Vector3(5.39f,0.3f,-6.63f);
         }
         else{
             Debug.Log("You still have " + lives + " lives.");
-            transform.position = new Vector3(6.74f,0.5f,-5.68f);
+            Debug.Log("Your current score is " + score + " points.");
+            transform.position = new Vector3(6.74f,0.3f,-5.68f);
         }
     }
 
     //Detect collisions between the GameObjects with Colliders attached
     void OnCollisionEnter(Collision collision)
     {
+        var power = Random.Range(0f,1f)*20;
+
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.name == "Obstacle#1")
         {
             //If the GameObject's name matches the one you suggest, output this message in the console
             score += 100;
-            //Debug.Log("Obstacle#1");
+            Debug.Log("Nice! You scored 100 points!");
+            Debug.Log("You have " + score + " points.");
+            
+            // Set to random color
+            collision.gameObject.GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+            ball.AddForce(power*Vector3.forward);
         }
 
         //Check for a match with the specific tag on any GameObject that collides with your GameObject
@@ -56,15 +66,25 @@ public class Ball : MonoBehaviour
         {
             //If the GameObject has the same tag as specified, output this message in the console
             score += 200;
-            //Debug.Log("Obstacle#2");
+            Debug.Log("Great! You scored 200 points!");
+            Debug.Log("You have " + score + " points.");
+    
+            // Set to random color
+            collision.gameObject.GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+            ball.AddForce(power*Vector3.forward);
         }
 
                 //Check for a match with the specific tag on any GameObject that collides with your GameObject
         if (collision.gameObject.name == "Obstacle#3")
         {
             //If the GameObject has the same tag as specified, output this message in the console
+            Debug.Log("Excellent! You scored 300 points!");
+            Debug.Log("You have " + score + " points.");
             score += 300;
-            //Debug.Log("Obstacle#3");
+            
+            // Set to random color
+            collision.gameObject.GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+            ball.AddForce(power*Vector3.forward);
         }
     }
 }
